@@ -1,247 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leisure Loan - Application Form</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
-
         h1 {
             text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
         }
-
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+            color: #2c3e50;
+        }
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-
         th, td {
+            padding: 12px;
             border: 1px solid #ddd;
-            padding: 8px;
             text-align: left;
         }
-
         th {
             background-color: #f2f2f2;
-            width: 20%;
+            font-weight: bold;
+            color: #2c3e50;
         }
-
-        input[type="text"],
-        input[type="date"],
-        select {
+        input[type="text"], input[type="date"], input[type="number"], input[type="tel"], input[type="email"], select, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             margin: 5px 0;
+            display: inline-block;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
-
-        .section-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
         .photo-upload {
-            text-align: center;
+            margin-bottom: 15px;
         }
-
-        .photo-upload img {
-            max-width: 100px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .document-list {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
         .signature-container {
-            display: flex;
-            align-items: center;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
-
     <h1>Leisure Loan - Application Form</h1>
+    <form id="loanForm" enctype="multipart/form-data">
+        <div class="section-header">Personal Information</div>
+        <table>
+            <tr>
+                <th>Particulars</th>
+                <th>Applicant</th>
+                <th>Co-applicant/Guarantor (if any)</th>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="applicant_first_name" required></td>
+                <td><input type="text" name="coapplicant_first_name"></td>
+            </tr>
+            <tr>
+                <td>Middle Name</td>
+                <td><input type="text" name="applicant_middle_name"></td>
+                <td><input type="text" name="coapplicant_middle_name"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="applicant_last_name" required></td>
+                <td><input type="text" name="coapplicant_last_name"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="date" name="applicant_dob" required></td>
+                <td><input type="date" name="coapplicant_dob"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <select name="applicant_gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="coapplicant_gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td>
+                    <select name="applicant_marital_status" required>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="coapplicant_marital_status">
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td><input type="text" name="applicant_occupation" required></td>
+                <td><input type="text" name="coapplicant_occupation"></td>
+            </tr>
+            <tr>
+                <td>Monthly Income</td>
+                <td><input type="number" name="applicant_income" required></td>
+                <td><input type="number" name="coapplicant_income"></td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td><input type="tel" name="applicant_phone" required></td>
+                <td><input type="tel" name="coapplicant_phone"></td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><input type="email" name="applicant_email" required></td>
+                <td><input type="email" name="coapplicant_email"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td colspan="2"><textarea name="address" rows="4" required></textarea></td>
+            </tr>
+        </table>
 
-    <div class="section-header">Personal Information</div>
+        <div class="section-header">Loan Details</div>
+        <table>
+            <tr>
+                <td>Loan Amount</td>
+                <td><input type="number" name="loan_amount" required></td>
+            </tr>
+            <tr>
+                <td>Loan Purpose</td>
+                <td><input type="text" name="loan_purpose" required></td>
+            </tr>
+            <tr>
+                <td>Loan Tenure (in months)</td>
+                <td><input type="number" name="loan_tenure" required></td>
+            </tr>
+        </table>
 
-    <table>
-        <tr>
-            <th>Particulars</th>
-            <th>Applicant</th>
-            <th>Co-applicant/Guarantor (if any)</th>
-        </tr>
-        <tr>
-            <td>First Name</td>
-            <td><input type="text" name="applicant_first_name"></td>
-            <td><input type="text" name="coapplicant_first_name"></td>
-        </tr>
-        <tr>
-            <td>Middle Name</td>
-            <td><input type="text" name="applicant_middle_name"></td>
-            <td><input type="text" name="coapplicant_middle_name"></td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td><input type="text" name="applicant_last_name"></td>
-            <td><input type="text" name="coapplicant_last_name"></td>
-        </tr>
-        <tr>
-            <td>Date of Birth</td>
-            <td><input type="date" name="applicant_dob"></td>
-            <td><input type="date" name="coapplicant_dob"></td>
-        </tr>
-        <tr>
-            <td>Gender</td>
-            <td>
-                <select>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Marital Status</td>
-            <td>
-                <select>
-                    <option value="single">Single</option>
-                    <option value="married">Married</option>
-                    <option value="divorced">Divorced</option>
-                    <option value="widowed">Widowed</option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option value="single">Single</option>
-                    <option value="married">Married</option>
-                    <option value="divorced">Divorced</option>
-                    <option value="widowed">Widowed</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Occupation</td>
-            <td><input type="text" name="applicant_occupation"></td>
-            <td><input type="text" name="coapplicant_occupation"></td>
-        </tr>
-        <tr>
-            <td>Monthly Income</td>
-            <td><input type="text" name="applicant_income"></td>
-            <td><input type="text" name="coapplicant_income"></td>
-        </tr>
-        <tr>
-            <td>Contact Number</td>
-            <td><input type="tel" name="applicant_phone"></td>
-            <td><input type="tel" name="coapplicant_phone"></td>
-        </tr>
-        <tr>
-            <td>Email Address</td>
-            <td><input type="email" name="applicant_email"></td>
-            <td><input type="email" name="coapplicant_email"></td>
-        </tr>
-        <tr>
-            <td>Address</td>
-            <td colspan="2"><textarea name="address" rows="4"></textarea></td>
-        </tr>
-    </table>
+        <div class="section-header">Document Upload</div>
+        <p>Please upload the following documents:</p>
+        <div class="photo-upload">
+            <label for="applicant_photo">Applicant Photo:</label>
+            <input type="file" name="applicant_photo" accept="image/*" required>
+        </div>
+        <div class="photo-upload">
+            <label for="coapplicant_photo">Co-applicant Photo (if applicable):</label>
+            <input type="file" name="coapplicant_photo" accept="image/*">
+        </div>
+        <div class="photo-upload">
+            <label for="proof_of_identity">Proof of Identity:</label>
+            <input type="file" name="proof_of_identity" required>
+        </div>
+        <div class="photo-upload">
+            <label for="proof_of_address">Proof of Address:</label>
+            <input type="file" name="proof_of_address" required>
+        </div>
+        <div class="photo-upload">
+            <label for="income_proof">Income Proof:</label>
+            <input type="file" name="income_proof" required>
+        </div>
+        <div class="photo-upload">
+            <label for="educational_documents">Educational Documents (if applicable):</label>
+            <input type="file" name="educational_documents">
+        </div>
 
-    <div class="section-header">Loan Details</div>
+        <div class="section-header">Declaration</div>
+        <p>I hereby declare that the information provided above is true and correct to the best of my knowledge and I agree to the terms and conditions of the loan.</p>
+        <div class="signature-container">
+            <label for="applicant_signature">Applicant Signature:</label>
+            <input type="file" name="applicant_signature" accept="image/*" required>
+        </div>
+        <div class="signature-container">
+            <label for="coapplicant_signature">Co-applicant Signature (if applicable):</label>
+            <input type="file" name="coapplicant_signature" accept="image/*">
+        </div>
 
-    <table>
-        <tr>
-            <td>Loan Amount</td>
-            <td><input type="number" name="loan_amount"></td>
-        </tr>
-        <tr>
-            <td>Loan Purpose</td>
-            <td><input type="text" name="loan_purpose"></td>
-        </tr>
-        <tr>
-            <td>Loan Tenure (in months)</td>
-            <td><input type="number" name="loan_tenure"></td>
-        </tr>
-    </table>
-
-    <div class="section-header">Document Upload</div>
-
-    <p>Please upload the following documents:</p>
-  
-
-    <div class="photo-upload">
-        <label for="applicant_photo">Applicant Photo:</label>
-        <input type="file" id="applicant_photo" accept="image/*">
-    </div>
-    <div class="photo-upload">
-        <label for="coapplicant_photo">Co-applicant Photo (if applicable):</label>
-        <input type="file" id="coapplicant_photo" accept="image/*">
-    </div>
-    <div class="photo-upload">
-        <label for="proof_of_identity">Proof of Identity:</label>
-        <input type="file" id="proof_of_identity">
-    </div>
-    <div class="photo-upload">
-        <label for="proof_of_address">Proof of Address:</label>
-        <input type="file" id="proof_of_address">
-    </div>
-    <div class="photo-upload">
-        <label for="income_proof">Income Proof:</label>
-        <input type="file" id="income_proof">
-    </div>
-    <div class="photo-upload">
-        <label for="educational_documents">Educational Documents (if applicable):</label>
-        <input type="file" id="educational_documents">
-    </div>
-
-    <div class="section-header">Declaration</div>
-
-    <p>I hereby declare that the information provided above is true and correct to the best of my knowledge and I agree to the terms and conditions of the loan.</p>
-
-    <div class="signature-container">
-        <label for="applicant_signature">Applicant Signature:</label>
-        <input type="file" id="applicant_signature" accept="image/*">
-    </div>
-
-    <div class="signature-container">
-        <label for="coapplicant_signature">Co-applicant Signature (if applicable):</label>
-        <input type="file" id="coapplicant_signature" accept="image/*">
-    </div>
-
-    <button type="submit">Submit Application</button>
+        <button type="submit">Submit Application</button>
+    </form>
 
     <script>
         document.getElementById("loanForm").addEventListener("submit", async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            const jsonData = Object.fromEntries(formData.entries());
-
             try {
-            const response = await fetch("http://localhost:5000/api/loan-application", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(jsonData),
-            });
-
-            const result = await response.json();
-            alert(result.message);
+                const response = await fetch("http://localhost:5000/api/loan-application", {
+                    method: "POST",
+                    body: formData,
+                });
+                const result = await response.json();
+                alert(result.message);
             } catch (error) {
-            alert("Error submitting the form. Try again.");
+                alert("Error submitting the form. Try again.");
             }
         });
-</script>
-
+    </script>
 </body>
 </html>

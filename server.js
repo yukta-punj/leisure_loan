@@ -1,8 +1,11 @@
+// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path= require("path");
+const path = require("path");
+const loanRoutes = require("./routes/loanRoutes");
+
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -16,17 +19,8 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-// Define Routes
-const Loan = require("./models/Loan");
-app.post("/api/loan-application", async (req, res) => {
-  try {
-    const loanApplication = new Loan(req.body);
-    await loanApplication.save();
-    res.status(201).json({ message: "Loan application submitted successfully!" });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+// Use Routes
+app.use("/api", loanRoutes);
 
 // Start Server
 const PORT = 5000;

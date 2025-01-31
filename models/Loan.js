@@ -1,38 +1,38 @@
 const mongoose = require("mongoose");
 
-const loanSchema = new mongoose.Schema({
-  applicant: {
-    firstName: String,
-    middleName: String,
-    lastName: String,
-    dob: Date,
-    gender: String,
-    maritalStatus: String,
-    occupation: String,
-    income: Number,
-    phone: String,
-    email: String,
-    address: String,
-  },
-  coapplicant: {
-    firstName: String,
-    middleName: String,
-    lastName: String,
-    dob: Date,
-    gender: String,
-    maritalStatus: String,
-    occupation: String,
-    income: Number,
-    phone: String,
-    email: String,
-  },
-  loanDetails: {
-    amount: Number,
-    purpose: String,
-    tenure: Number,
-  },
+const LoanSchema = new mongoose.Schema({
+  applicant_first_name: { type: String, required: true },
+  applicant_middle_name: { type: String },
+  applicant_last_name: { type: String, required: true },
+  applicant_dob: { type: Date, required: true },
+  applicant_gender: { type: String, required: true },
+  applicant_marital_status: { type: String, required: true },
+  applicant_occupation: { type: String, required: true },
+  applicant_income: { type: Number, required: true },
+  applicant_phone: { type: String, required: true },
+  applicant_email: { type: String, required: true },
+  address: { type: String, required: true },
+  coapplicant_first_name: { type: String },
+  coapplicant_middle_name: { type: String },
+  coapplicant_last_name: { type: String },
+  coapplicant_dob: { type: Date },
+  coapplicant_gender: { type: String },
+  coapplicant_marital_status: { type: String },
+  coapplicant_occupation: { type: String },
+  coapplicant_income: { type: Number },
+  coapplicant_phone: { type: String },
+  coapplicant_email: { type: String },
+  loan_amount: { type: Number, required: true },
+  loan_purpose: { type: String, required: true },
+  loan_tenure: { type: Number, required: true },
+  applicant_photo: { type: String },
+  coapplicant_photo: { type: String },
+  proof_of_identity: { type: String },
+  proof_of_address: { type: String },
+  income_proof: { type: String },
+  educational_documents: { type: String },
+  applicant_signature: { type: String },
+  coapplicant_signature: { type: String },
 });
 
-const Loan = mongoose.model("Loan", loanSchema);
-
-module.exports = Loan;
+module.exports = mongoose.model("Loan", LoanSchema);
